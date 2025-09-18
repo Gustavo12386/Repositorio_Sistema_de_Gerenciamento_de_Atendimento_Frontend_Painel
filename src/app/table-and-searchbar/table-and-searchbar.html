@@ -5,13 +5,14 @@
     <input class="input" type="text" placeholder="Pesquisar por um cliente">
   </p>
   <p class="control">
-    <button class="button is-info">
+    <button class="button is-info" style="margin-right: 14px;">
       Pesquisar
     </button>
   </p>
 </div>    
 <p-table    
     showGridlines
+    [value]="clients"
     [tableStyle]="{ 'width': '83rem' }">
         <ng-template #header>
             <tr>
