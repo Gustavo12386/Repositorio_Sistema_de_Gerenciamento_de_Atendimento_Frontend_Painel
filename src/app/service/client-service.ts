@@ -20,7 +20,11 @@ export class ClientService {
   constructor(private http: HttpClient){}
 
     getClients(): Observable<ClientResponse> {
-    return this.http.get<ClientResponse>(this.elementApiUrl);
-  }
+        return this.http.get<ClientResponse>(this.elementApiUrl);
+    }
+
+    finallyClient(id: number): Observable<any> {
+       return this.http.delete<any>(`${this.elementApiUrl}/${id}`);
+    }
 
 }
