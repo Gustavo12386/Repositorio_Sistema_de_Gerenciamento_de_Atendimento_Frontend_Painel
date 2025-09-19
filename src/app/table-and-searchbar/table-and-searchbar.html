@@ -24,7 +24,7 @@
     showGridlines
     [value]="clients"
     [tableStyle]="{ 'width': '83rem' }" 
-    [globalFilterFields]="['name', 'phone', 'email']"
+    [globalFilterFields]="['name', 'phone', 'email', 'data_agendamento', 'hora_agendamento']"
     [paginator]="true"           
     [rows]="7"    
     [responsiveLayout]="'scroll'">
@@ -34,6 +34,8 @@
           <th>Nome</th>
           <th>Telefone</th>
           <th>Email</th>
+          <th>Data</th>
+          <th>Hora</th>
           <th></th>
         </tr>
       </ng-template>
@@ -44,6 +46,8 @@
           <td>{{ product.name }}</td>
           <td>{{ product.phone }}</td>
           <td>{{ product.email }}</td>
+          <td>{{ product.data_agendamento }}</td>
+          <td>{{ product.hora_agendamento }}</td>
           <td>
             <p-button 
               label="Encerrar Atendimento" 
