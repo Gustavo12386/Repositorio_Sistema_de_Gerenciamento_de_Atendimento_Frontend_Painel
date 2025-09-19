@@ -1,14 +1,18 @@
-import { Component, inject, model, OnInit, signal } from '@angular/core';
+import { Component, OnInit, ViewChild} from '@angular/core';
 import { TableModule } from 'primeng/table';
 import { Client } from '../models/client.model';
 import { ClientService } from '../service/client-service';
 import { CommonModule } from '@angular/common';
 import { ButtonModule } from 'primeng/button';
 import { MessageModule } from 'primeng/message';
+import { PaginatorModule } from 'primeng/paginator';
+import { Router } from '@angular/router';
+import { FormsModule } from '@angular/forms';
+import { Table } from 'primeng/table';
 
 @Component({
   selector: 'app-table-and-searchbar',
-  imports: [TableModule, CommonModule, ButtonModule, MessageModule],
+  imports: [TableModule, CommonModule, ButtonModule, MessageModule, FormsModule, PaginatorModule ],
   templateUrl: './table-and-searchbar.html',
   styleUrl: './table-and-searchbar.scss'
 })
@@ -17,9 +21,21 @@ export class TableAndSearchbar implements OnInit {
   clients: Client[] = [];
 
   isShowDiv: boolean = false;
-  
-  constructor(private clientService: ClientService){}
+  searchTerm: string = '';
 
+  @ViewChild('table') table!: Table; // referência para o p-table
+
+  applyFilter() {
+    this.table.filterGlobal(this.searchTerm, 'contains');
+  }
+  
+  constructor(private clientService: ClientService, private router: Router){}
+
+   onSearch(): void {
+    if (this.searchTerm.trim()) {  
+      this.router.navigate(['/search'], { queryParams: { query: this.searchTerm } });
+    }
+  }
   ngOnInit(): void {
     this.getClientList();
   }

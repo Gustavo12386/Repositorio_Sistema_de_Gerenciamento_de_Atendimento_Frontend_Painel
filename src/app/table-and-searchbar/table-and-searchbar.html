@@ -5,21 +5,30 @@
 <h1 class="title">Atendimentos a Realizar</h1>    
 <div class="field is-grouped">
   <p class="control is-expanded">
-    <input class="input" type="text" placeholder="Pesquisar por um cliente">
+    <input class="input" type="text" placeholder="Pesquisar por um cliente" [(ngModel)]="searchTerm" (input)="applyFilter()">
   </p>
   <p class="control">
-    <button class="button is-info" style="margin-right: 14px;">
+    <button (click)="onSearch()" class="button is-info" style="margin-right: 14px;">
       Pesquisar
     </button>
   </p>
-</div>    
-@if (clients) {  
-  
+</div>
+
+ <div class="message-exception" *ngIf="!clients || clients.length === 0">
+  <h3 class="title">Nenhum cliente realizou agendamento</h3>
+</div>
+
+<div *ngIf="clients && clients.length > 0">
   <p-table    
+    #table
     showGridlines
     [value]="clients"
-    [tableStyle]="{ 'width': '83rem' }" >
-      <ng-template #header>
+    [tableStyle]="{ 'width': '83rem' }" 
+    [globalFilterFields]="['name', 'phone', 'email']"
+    [paginator]="true"           
+    [rows]="7"    
+    [responsiveLayout]="'scroll'">
+      <ng-template pTemplate="header">
         <tr>
           <th>Cod</th>
           <th>Nome</th>
@@ -28,20 +37,24 @@
           <th></th>
         </tr>
       </ng-template>
-      <ng-template #body let-product>
+
+      <ng-template pTemplate="body" let-product>
         <tr>
           <td>{{ product.id }}</td>
           <td>{{ product.name }}</td>
           <td>{{ product.phone }}</td>
           <td>{{ product.email }}</td>
-          <td><p-button label="Encerrar Atendimento" severity="success" (onClick)="finallyClient(product)" /></td>
+          <td>
+            <p-button 
+              label="Encerrar Atendimento" 
+              severity="success" 
+              (onClick)="finallyClient(product)" />
+          </td>
         </tr>
       </ng-template>
   </p-table>
-  
-} @if (!clients)  {
-  <h3 class="title">Nenhum cliente realizou agendamento</h3>
-}
+ 
+</div>
 </div>
 
 
