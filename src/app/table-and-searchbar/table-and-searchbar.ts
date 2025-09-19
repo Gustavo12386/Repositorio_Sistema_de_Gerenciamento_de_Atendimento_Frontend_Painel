@@ -39,10 +39,12 @@ export class TableAndSearchbar implements OnInit {
   finallyClient(client: Client){
      const confirmed = window.confirm(`O atendimento com esse cliente já foi realizado?`);
        if (confirmed) {
-        this.clientService.finallyClient(client.id).subscribe({
+       this.clientService.finallyClient(client.id).subscribe({
        next: () => {
-        this.clients = this.clients.filter(c => c.id !== client.id);
-       
+       const index = this.clients.findIndex(c => c.id === client.id);
+        if (index !== -1) {
+          this.clients.splice(index, 1); 
+        }
         this.isShowDiv = true;
         setTimeout(() => {
           this.isShowDiv = false;
