@@ -5,7 +5,7 @@
 <h1 class="title">Atendimentos a Realizar</h1>    
 <div class="field is-grouped">
   <p class="control is-expanded">
-    <input class="input" type="text" placeholder="Pesquisar por um cliente" [(ngModel)]="searchTerm" (input)="applyFilter()">
+    <input class="input" type="text" placeholder="Pesquisar por um cliente" [(ngModel)]="searchTerm" (click)="onSearch()">
   </p>
   <p class="control">
     <button (click)="onSearch()" class="button is-info" style="margin-right: 14px;">

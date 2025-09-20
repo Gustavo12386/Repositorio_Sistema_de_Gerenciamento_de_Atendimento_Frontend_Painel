@@ -31,11 +31,10 @@ export class TableAndSearchbar implements OnInit {
   
   constructor(private clientService: ClientService, private router: Router){}
 
-   onSearch(): void {
-    if (this.searchTerm.trim()) {  
-      this.router.navigate(['/search'], { queryParams: { query: this.searchTerm } });
-    }
+  onSearch(): void {
+    this.applyFilter();
   }
+
   ngOnInit(): void {
     this.getClientList();
   }
