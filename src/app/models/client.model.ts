@@ -3,4 +3,6 @@ export interface Client{
     name: string;
     phone: string;
     email: String;    
+    data_agendamento: String;
+    hora_atendimento: String;
 }
