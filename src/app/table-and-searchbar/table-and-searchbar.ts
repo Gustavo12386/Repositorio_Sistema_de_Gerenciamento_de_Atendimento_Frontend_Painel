@@ -20,7 +20,8 @@ export class TableAndSearchbar implements OnInit {
 
   clients: Client[] = [];
 
-  isShowDiv: boolean = false;
+  isShowDivSuccess: boolean = false;
+  isShowDivDanger: boolean = false;
   searchTerm: string = '';
 
   @ViewChild('table') table!: Table; // referência para o p-table
@@ -60,12 +61,16 @@ export class TableAndSearchbar implements OnInit {
         if (index !== -1) {
           this.clients.splice(index, 1); 
         }
-        this.isShowDiv = true;
+        this.isShowDivSuccess = true;
         setTimeout(() => {
-          this.isShowDiv = false;
+          this.isShowDivSuccess = false;
         }, 3000);
       },
       error: err => {
+        this.isShowDivDanger = true;
+        setTimeout(() => {
+          this.isShowDivDanger = false;
+        }, 3000);
         console.error('Erro ao deletar cliente:', err);
       }
     });
