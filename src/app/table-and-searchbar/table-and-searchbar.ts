@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild} from '@angular/core';
 import { TableModule } from 'primeng/table';
-import { Client } from '../models/client.model';
+import { Client } from '../model/client.model';
 import { ClientService } from '../service/client-service';
 import { CommonModule } from '@angular/common';
 import { ButtonModule } from 'primeng/button';
@@ -30,7 +30,7 @@ export class TableAndSearchbar implements OnInit {
     this.table.filterGlobal(this.searchTerm, 'contains');
   }
   
-  constructor(private clientService: ClientService, private router: Router){}
+  constructor(private clientService: ClientService){}
 
   onSearch(): void {
     this.applyFilter();
