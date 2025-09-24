@@ -6,13 +6,13 @@ import { CommonModule } from '@angular/common';
 import { ButtonModule } from 'primeng/button';
 import { MessageModule } from 'primeng/message';
 import { PaginatorModule } from 'primeng/paginator';
-import { Router } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { Table } from 'primeng/table';
+import { PhonePipe } from '../pipes/phone-pipe';
 
 @Component({
   selector: 'app-table-and-searchbar',
-  imports: [TableModule, CommonModule, ButtonModule, MessageModule, FormsModule, PaginatorModule ],
+  imports: [TableModule, CommonModule, ButtonModule, MessageModule, FormsModule, PaginatorModule, PhonePipe],
   templateUrl: './table-and-searchbar.html',
   styleUrl: './table-and-searchbar.scss'
 })
