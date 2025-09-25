@@ -1,6 +1,29 @@
 # PainelDeAtendimento
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.3.1.
+## Sobre o Frontend
+- O frontend do formulário de agendamento é uma interface SSR (Server Side Rendering) concebida para exibir a lista de clientes que realizaram agendamento, oferecendo também a funcionalidade de finalizar o atendimento. Desenvolvida com TypeScript e Angular e com os frameworks CSS Bootstrap para auxiliar na estilização, PrimeNG para construção da tabela e paginação e o BulmaCSS para a construção da barra de pesquisa , a interface garante robustez, alto desempenho e interatividade eficiente.
+
+## ✨ Tecnologias Utilizadas
+- HTML
+- SCSS,
+- TypeScript,
+- Bootstrap,
+- PrimeNG,
+- BulmaCSS,
+- Angular19
+
+## 🗒️ Roteiro
+- [ ] Criação da interface com Angular
+- [ ] Implementação do Bootstrap
+- [ ] Implementação do PrimeNG
+- [ ] Implementação do BulmaCSS
+- [ ] Execução da Aplicação
+
+## Imagem da Interface sem nenhum cliente com agendamento realizado
+<img width="1715" height="606" alt="cap7" src="https://github.com/user-attachments/assets/6b6bc486-367e-4fa1-938d-276527fac0e3" />
+
+## Imagem da Interface com clientes que realizaram agendamento
+<img width="1651" height="794" alt="cap8" src="https://github.com/user-attachments/assets/8b24b77f-cf50-4616-b5e2-1932f24bf128" />
 
 ## Development server
 
